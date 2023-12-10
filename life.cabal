@@ -29,3 +29,19 @@ executable life
         base,
         comonad
     hs-source-dirs: .
+
+executable life2
+    main-is: Life2.hs
+    build-depends: 
+        base,
+        comonad
+    hs-source-dirs: .
+
+executable life3
+    main-is: Life3.hs
+    build-depends: 
+        base,
+        comonad,
+        adjunctions,
+        containers
+    hs-source-dirs: .
