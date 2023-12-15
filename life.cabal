@@ -23,6 +23,26 @@ extra-source-files:
     CHANGELOG.md
     README.md
 
+common polysemy-dependencies
+    default-language: Haskell2010
+    build-depends:    
+        base >= 4.15,
+        polysemy,
+        polysemy-conc,
+        polysemy-plugin,
+    default-extensions:
+        DataKinds,
+        FlexibleContexts,
+        GADTs,
+        LambdaCase,
+        PolyKinds,
+        RankNTypes,
+        ScopedTypeVariables,
+        TypeApplications,
+        TypeOperators,
+        TypeFamilies
+    ghc-options: -fplugin=Polysemy.Plugin
+
 executable life
     main-is: Life.hs
     build-depends: 
@@ -44,4 +64,45 @@ executable life3
         comonad,
         adjunctions,
         containers
+    hs-source-dirs: .
+
+executable gen
+    main-is: generate.hs
+    build-depends: 
+        base,
+        comonad,
+        adjunctions,
+        containers,
+        random,
+        MonadRandom
+    hs-source-dirs: .
+
+executable gen-example
+    import: polysemy-dependencies
+    main-is: generate-example.hs
+    build-depends: 
+        base,
+        comonad,
+        adjunctions,
+        containers,
+        random,
+        MonadRandom,
+        singletons,
+        singletons-th,
+        singletons-base
+    hs-source-dirs: .
+
+executable gen-ps
+    import: polysemy-dependencies
+    main-is: generate-ps.hs
+    build-depends: 
+        base,
+        comonad,
+        adjunctions,
+        containers,
+        random,
+        MonadRandom,
+        singletons,
+        singletons-th,
+        singletons-base
     hs-source-dirs: .
